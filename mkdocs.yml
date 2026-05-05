@@ -1,6 +1,6 @@
 site_name: Cibersabiduría
 site_description: Documentación técnica personal sobre cloud, sistemas, redes y ciberseguridad.
-site_url: https://cybershield22.github.io/cibersabiduria/
+site_url: https://cybershield22.github.io/devopsbydavid/
 
 theme:
   name: material
@@ -64,9 +64,9 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
-  - Scripting: 
-      - Visión general: scripting/index.md
-      - Pyhton: scripting/python/index.md
+#  - Scripting: 
+#      - Visión general: scripting/index.md
+#      - Pyhton: scripting/python/index.md
   - Operating System: system/index.md
   - Redes: redes/index.md
   - Cloud:     
