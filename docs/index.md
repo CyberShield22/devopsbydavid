@@ -1,22 +1,35 @@
-# 🔐 Apuntes prácticos de Ciberseguridad, Cloud y Sistemas
-Documentación técnica clara, estructurada y enfocada a la práctica real sobre **Cloud, Redes, Linux, Windows y Ciberseguridad**.  
+🔧 **DevOpsByDavid — Apuntes prácticos de DevOps y Sistemas**  
+Documentación técnica clara, estructurada y enfocada a la práctica real sobre Linux, automatización, contenedores, CI/CD e infraestructura como código.  
 Un espacio donde la teoría se convierte en laboratorio.
 
 📚 Aprende  
 🛠️ Practica  
-🚀 Mejora tus habilidades IT
+🚀 Construye, automatiza y despliega
 
 ---
-## 📖 Sobre este sitio
 
-Este proyecto nace como un repositorio técnico donde se recopilan apuntes, configuraciones, guías paso a paso y documentación real utilizada en entornos de laboratorio y producción.
+📖 **Sobre este sitio**  
+**DevOpsByDavid** nace como un repositorio técnico donde se recopilan apuntes, configuraciones, guías paso a paso y documentación basada en entornos de laboratorio y casos reales dentro del ecosistema DevOps.
 
-Está orientado a:
+Aquí encontrarás contenido enfocado en:
+
+- Linux y administración de sistemas
+- Automatización y scripting
+- Contenedores (Docker, Kubernetes)
+- Integración y despliegue continuo (CI/CD)
+- Infraestructura como código (Terraform, Ansible)
+- Monitorización y observabilidad
+
+---
+
+🎯 **Está orientado a:**
 
 - Estudiantes de informática
 - Administradores de sistemas
 - Profesionales IT
 - Personas que se preparan certificaciones
-- Entusiastas de la ciberseguridad
+- Cualquier persona que quiera aprender y evolucionar en DevOps
 
-El contenido está organizado por áreas clave del mundo de la informática, cubriendo desde fundamentos hasta configuraciones avanzadas.
+---
+
+El contenido está organizado por áreas clave del mundo DevOps, cubriendo desde fundamentos hasta implementaciones reales orientadas a entornos modernos.

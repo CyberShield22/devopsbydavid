@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "cloud/fundamentals.md",
+                "file": "index.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "fundamentals"
+              "title": "index"
             }
           }
         ]
@@ -44,7 +44,7 @@
                 "autoReveal": false
               },
               "icon": "lucide-folder-closed",
-              "title": "Files"
+              "title": "Explorador de archivos"
             }
           },
           {
@@ -94,7 +94,7 @@
             "state": {
               "type": "backlink",
               "state": {
-                "file": "cloud/gcp/computers_engines.md",
+                "file": "index.md",
                 "collapseAll": false,
                 "extraContext": false,
                 "sortOrder": "alphabetical",
@@ -104,7 +104,7 @@
                 "unlinkedCollapsed": true
               },
               "icon": "links-coming-in",
-              "title": "Enlaces entrantes de computers_engines"
+              "title": "Enlaces entrantes de index"
             }
           },
           {
@@ -174,20 +174,28 @@
   },
   "left-ribbon": {
     "hiddenItems": {
-      "switcher:Open quick switcher": false,
-      "graph:Open graph view": false,
-      "canvas:Create new canvas": false,
-      "daily-notes:Open today's daily note": false,
-      "templates:Insert template": false,
-      "command-palette:Open command palette": false,
-      "bases:Create new base": false
+      "switcher:Abrir selector rápido": false,
+      "graph:Abrir vista gráfica": false,
+      "canvas:Crear nuevo lienzo": false,
+      "daily-notes:Abrir la nota de hoy": false,
+      "templates:Insertar plantilla": false,
+      "command-palette:Abrir paleta de comandos": false,
+      "bases:Crear nueva base": false
     }
   },
   "active": "e310d338a1642179",
   "lastOpenFiles": [
-    "index.md",
-    "cloud/fundamentals.md",
     "ciberseguridad/index.md",
+    "blog/posts/drafts/sysadmin_day.md",
+    "blog/posts/drafts/pirate_day.md",
+    "blog/posts/drafts/may_day.md",
+    "blog/posts/drafts/may_4th.md",
+    "blog/author/team.md",
+    "cloud/aws/iam.md",
+    "index.md",
+    "assets.md",
+    "tags.md",
+    "cloud/fundamentals.md",
     "linux/index.md",
     "cloud/index.md",
     "ciberseguridad",
@@ -195,14 +203,12 @@
     "blog/index.md",
     "blog/tags.md",
     "cloud/gcp/computers_engines.md",
-    "cloud/aws/iam.md",
     "cloud/terraform/intro.md",
     "cloud/aws/iam/Sin título.md",
     "cloud/aws/iam",
     "cloud/gcp",
     "cloud/aws",
     "cloud/terraform/install.md",
-    "assets.md",
     "cloud/terraform/assets/hashicorp.png",
     "cloud/terraform/assets/Pasted image 20260122184210.png",
     "cloud/terraform/assets/providers_cloud.png.~tmp",
@@ -219,7 +225,6 @@
     "cloud/azure/assets",
     "img/Pasted image 20260120185255.png",
     "img",
-    "cloud/azure/computing/Virtual Machines.md",
-    "tags.md"
+    "cloud/azure/computing/Virtual Machines.md"
   ]
 }
