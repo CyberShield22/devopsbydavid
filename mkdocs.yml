@@ -64,8 +64,10 @@ markdown_extensions:
 
 nav:
   - Inicio: index.md
-  - Linux: linux/index.md
-  - Windows: windows/index.md
+  - Scripting: 
+      - Visión general: scripting/index.md
+      - Pyhton: scripting/python/index.md
+  - Operating System: system/index.md
   - Redes: redes/index.md
   - Cloud:     
     - Visión general: cloud/index.md
