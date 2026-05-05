@@ -1,4 +1,3 @@
-🔧 **DevOpsByDavid — Apuntes prácticos de DevOps y Sistemas**  
 Documentación técnica clara, estructurada y enfocada a la práctica real sobre Linux, automatización, contenedores, CI/CD e infraestructura como código.  
 Un espacio donde la teoría se convierte en laboratorio.
 

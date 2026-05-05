@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "🔧 DevOpsByDavid — Apuntes prácticos de DevOps y Sistemas.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "index"
+              "title": "🔧 DevOpsByDavid — Apuntes prácticos de DevOps y Sistemas"
             }
           }
         ]
@@ -192,7 +192,7 @@
     "blog/posts/drafts/may_4th.md",
     "blog/author/team.md",
     "cloud/aws/iam.md",
-    "index.md",
+    "🔧 DevOpsByDavid — Apuntes prácticos de DevOps y Sistemas.md",
     "assets.md",
     "tags.md",
     "cloud/fundamentals.md",
