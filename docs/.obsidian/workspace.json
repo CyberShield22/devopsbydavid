@@ -13,7 +13,7 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "index.md",
+                "file": "system/index.md",
                 "mode": "source",
                 "source": false
               },
@@ -183,14 +183,14 @@
       "bases:Crear nueva base": false
     }
   },
-  "active": "e310d338a1642179",
+  "active": "7d88ff0d858867ed",
   "lastOpenFiles": [
+    "index.md",
     "scripting/index.md",
     "ciberseguridad/index.md",
     "scripting",
     "blog/tags.md",
     "blog/index.md",
-    "index.md",
     "tags.md",
     "assets.md",
     "blog/posts/drafts/sysadmin_day.md",

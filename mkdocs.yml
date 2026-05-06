@@ -68,7 +68,7 @@ nav:
 #      - Visión general: scripting/index.md
 #      - Pyhton: scripting/python/index.md
   - Operating System: system/index.md
-  - Redes: redes/index.md
+  - Networking: redes/index.md
   - Cloud:     
     - Visión general: cloud/index.md
     - Fundamentos de la nube: cloud/fundamentals.md
@@ -83,6 +83,6 @@ nav:
     #   - Introducción: cloud/terraform/intro.md
     #   - Instalación: cloud/terraform/install.md
   - Ciberseguridad: ciberseguridad/index.md
-  - Blog:
-     - blog/index.md
-     - blog/tags.md
+#  - Blog:
+#     - blog/index.md
+#     - blog/tags.md

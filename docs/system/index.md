@@ -1,1 +1,2 @@
-# Windows
+# ¿Qué es un sistema operativo?
+Un sistema operativo es el software esencial que gestiona los recursos de hardware y software de un ordenador y proporciona servicios básicos para el funcionamiento de las aplicaciones. Actúa como intermediario entre el usuario y la máquina, encargándose de tareas como la gestión de procesos, la memoria, los sistemas de archivos y los dispositivos. Al ocultar la complejidad del hardware, permite que los programas se ejecuten de forma estable y coherente en distintos entornos.
