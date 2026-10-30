@@ -79,7 +79,7 @@ nav:
     - Pyhton: scripting/python/index.md
   - Sistemas Operativos:
     - system/index.md
-    - Linux: system/linux.md
+    - Hardening Linux: system/linux.md
     - Windows: system/windows.md
     - Monitorización de red con Arkime: system/arkime.md
   - Redes: redes/index.md
