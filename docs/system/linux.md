@@ -163,3 +163,137 @@ Status for the jail: sshd
 **Fail2ban no aparece con el error "la sección 'sshd' ya existe"**
 
 Causa: La sección `[sshd]` está duplicada en `jail.local`. Elimine la versión incompleta en la parte superior del archivo y conserve solo la versión completa.
+# 5. Autenticación de clave SSH
+## ¿Por qué hacer esto?
+Las contraseñas se pueden adivinar mediante fuerza bruta. Las claves SSH funcionan de manera diferente: son matemáticamente imposibles de adivinar. Al deshabilitar el inicio de sesión con contraseña y utilizar solo claves, elimina por completo esta clase de ataque.
+## ¿Cómo funciona?
+Una clave SSH tiene dos partes:
+- **Clave privada:** permanece en su computadora. Nunca compartir.
+- **Clave pública:** va al servidor. Se puede compartir. 
+El servidor sólo permite el acceso a aquellos que tengan registrada la clave privada correspondiente a la pública.
+## 5.1 Generar la clave en tu computadora
+En PowerShell (Windows) o terminal (Linux/Mac):
+```
+ssh-keygen -t ed25519 -C "pc-iptv"
+```
+- `-t ed25519` -> algoritmo moderno y seguro
+- `-C` -> Comentario para identificar la clave
+Cuando pregunte dónde guardar, presione Enter en la ubicación predeterminada. Al solicitar una frase de contraseña, recomiendo configurar una contraseña que protege su clave privada.
+## 5.2 Copiar la clave pública al servidor
+**Windows (PowerShell):**
+```
+type $env:USERPROFILE\.ssh\pc-iptv.pub | ssh seunome@IP_DA_VPS "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys"
+```
+**Linux/Mac:**
+```
+ssh-copy-id -i ~/.ssh/pc-iptv.pub seunome@IP_DA_VPS
+```
+## 5.3 Prueba antes de continuar
+Abra una nueva terminal e intente iniciar sesión:
+```
+ssh seunome@IP_DA_VPS
+```
+Debería solicitar la contraseña clave (no la contraseña del servidor). Si inicia sesión, la clave está funcionando.
+## 5.4 Deshabilitar el inicio de sesión con contraseña
+Edite el archivo principal:
+```
+nano /etc/ssh/sshd_config
+```
+```
+PasswordAuthentication no
+```
+Verifique también las anulaciones:
+```
+nano /etc/ssh/sshd_config.d/50-cloud-init.conf
+```
+```
+PasswordAuthentication no
+```
+Reinicie SSH:
+```
+systemctl restart ssh
+```
+
+> [!WARNING] Atención
+> - Deshabilite el inicio de sesión con contraseña solo después de confirmar que la clave funciona
+> - Guarda tu clave privada en un lugar seguro — sin ella, pierdes el acceso al servidor
+> - La frase de contraseña solicitada al iniciar sesión proviene de la clave, no del servidor — esto es lo esperado
+# 6. Actualizaciones desatendidas
+## ¿Por qué hacer esto?
+Todo el tiempo se descubren nuevas vulnerabilidades. Cuando se soluciona una falla de seguridad, la actualización debe llegar a su servidor lo antes posible. Unattended Upgrades hace esto automáticamente, sin tener que recordar ejecutar apt upgrade manualmente.
+## Comprueba si está activo
+En Ubuntu 24.04, ya viene instalado y activo de forma predeterminada. Comprobar:
+```
+systemctl status unattended-upgrades
+```
+Salida esperada: `active (running)`
+
+Confirmar la configuración:
+```
+cat /etc/apt/apt.conf.d/20auto-upgrades
+```
+Salida esperada:
+```
+APT::Periodic::Update-Package-Lists "1";
+APT::Periodic::Unattended-Upgrade "1";
+```
+- `Update-Package-Lists "1"` — busca actualizaciones diariamente
+- `Unattended-Upgrade "1"` — instala automáticamente los de seguridad
+## Si no está instalado
+```
+apt install -y unattended-upgrades
+dpkg-reconfigure --priority=low unattended-upgrades
+```
+# 7. Auditoría
+## ¿Por qué hacer esto?
+Si sucede algo sospechoso en su servidor, necesita saber a qué accedió, cuándo y quién lo hizo. Auditd registra eventos críticos del sistema: archivos accedidos, comandos ejecutados como root, intentos de acceso denegado.
+
+Es la diferencia entre investigar un incidente con pruebas o en la oscuridad.
+## 7.1 Instalación
+```
+apt install -y auditd
+systemctl status auditd
+```
+## 7.2 Añadir reglas de seguimiento
+```
+nano /etc/audit/rules.d/audit.rules
+```
+Pegue las reglas a continuación:
+```
+# Monitora alterações em arquivos críticos do sistema
+-w /etc/passwd -p wa -k usuarios
+-w /etc/shadow -p wa -k senhas
+-w /etc/ssh/sshd_config -p wa -k ssh_config
+-w /etc/sudoers -p wa -k sudo
+
+# Registra comandos executados como root
+-a always,exit -F arch=b64 -S execve -F euid=0 -F key=root_commands
+
+# Registra tentativas de acesso negado
+-a always,exit -F arch=b64 -S open -F exit=-EACCES -F key=acesso_negado
+```
+Lo que significa cada parte:
+
+| Opción      | Significado                                      |
+| ----------- | ------------------------------------------------ |
+| `-w /ruta`  | Monitorea este archivo                           |
+| `-p wa`     | Detecta escritura (w) y cambio de atributo (a)   |
+| `-k nombre` | Etiqueta para facilitar la búsqueda de registros |
+| `-F euid=0` | Filtra solo al usuario raíz (UID 0)              |
+## 7.3 Carga las reglas
+```
+augenrules --load
+auditctl -l
+```
+El resultado debe enumerar todas las reglas agregadas.
+## 7.4 Cómo consultar los registros
+```
+# Ver acessos ao /etc/shadow
+sudo ausearch -k senhas
+
+# Ver comandos executados como root recentemente
+sudo ausearch -k root_commands --start recent
+
+# Ver acessos negados
+sudo ausearch -k acesso_negado --start recent
+```
